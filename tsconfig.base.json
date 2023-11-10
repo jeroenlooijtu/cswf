@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@cswf-project/api": ["libs/shared/api/src/index.ts"],
+      "@cswf-project/backend/dto": ["libs/backend/dto/src/index.ts"],
+      "@cswf-project/backend/features": ["libs/backend/features/src/index.ts"],
+      "@cswf-project/common": ["libs/cswf-project/common/src/index.ts"],
+      "@cswf-project/features": ["libs/cswf-project/features/src/index.ts"],
+      "@cswf-project/ui": ["libs/cswf-project/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
