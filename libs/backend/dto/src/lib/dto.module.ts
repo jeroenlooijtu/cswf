@@ -4,6 +4,6 @@ import { CreateMealDto } from './meal.dto'
 @Module({
   controllers: [],
   providers: [],
-  exports: [CreateMealDto],
+  exports: [],
 })
 export class DtoModule {}
