@@ -34,17 +34,17 @@ jobs:
           cd ${GITHUB_WORKSPACE}/dist/apps/data-api/ && zip ${GITHUB_WORKSPACE}/data-api-release.zip ./* -r
           cd ${GITHUB_WORKSPACE}/dist/apps/rcmnd-api/ && zip ${GITHUB_WORKSPACE}/rcmnd-app-release.zip ./* -r
 
-      - name: Upload frontend-app artifact for deployment job
+      - name: Upload data-app artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: frontend-app
-          path: frontend-app-release.zip
+          name: data-app
+          path: data-app-release.zip
           
-      - name: Upload backend-api artifact for deployment job
+      - name: Upload rcmnd-api artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: backend-api
-          path: backend-api-release.zip
+          name: rcmnd-api
+          path: rcmnd-api-release.zip
           
           
   deploy-frontend-app:
@@ -57,10 +57,10 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: frontend-app
+          name: data-app
 
       - name: Unzip artifact for deployment
-        run: unzip frontend-app-release.zip
+        run: unzip data-app-release.zip
         
       - name: Deploy to static azure web app
         id: builddeploy
@@ -85,10 +85,10 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: backend-api
+          name: rcmnd-api
 
       - name: Unzip artifact for deployment
-        run: unzip backend-api-release.zip
+        run: unzip rcmnd-api-release.zip
 
       - name: Install dependencies
         run: npm install
