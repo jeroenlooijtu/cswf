@@ -30,21 +30,20 @@ jobs:
       - name: Zip artifacts for deployment
         run: |
           echo ${GITHUB_WORKSPACE}
-          echo github.workspace
           cd ${GITHUB_WORKSPACE}/dist/apps/data-api/ && zip ${GITHUB_WORKSPACE}/data-api-release.zip ./* -r
-          cd ${GITHUB_WORKSPACE}/dist/apps/rcmnd-api/ && zip ${GITHUB_WORKSPACE}/rcmnd-app-release.zip ./* -r
+          cd ${GITHUB_WORKSPACE}/dist/apps/cswf-project/ && zip ${GITHUB_WORKSPACE}/cswf-project-release.zip ./* -r
 
-      - name: Upload data-app artifact for deployment job
+      - name: Upload cswf-project artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: data-app
-          path: data-app-release.zip
+          name: cswf-project
+          path: cswf-project-release.zip
           
-      - name: Upload rcmnd-api artifact for deployment job
+      - name: Upload data-api artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: rcmnd-api
-          path: rcmnd-api-release.zip
+          name: data-api
+          path: data-api-release.zip
           
           
   deploy-frontend-app:
@@ -57,10 +56,10 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: data-app
+          name: cswf-project
 
       - name: Unzip artifact for deployment
-        run: unzip data-app-release.zip
+        run: unzip cswf-project-release.zip
         
       - name: Deploy to static azure web app
         id: builddeploy
@@ -85,10 +84,10 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: rcmnd-api
+          name: data-api
 
       - name: Unzip artifact for deployment
-        run: unzip rcmnd-api-release.zip
+        run: unzip data-api-release.zip
 
       - name: Install dependencies
         run: npm install
