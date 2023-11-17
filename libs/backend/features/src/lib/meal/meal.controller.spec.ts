@@ -1,25 +1,19 @@
-import { Controller } from '@nestjs/common';
-import { MealService } from './meal.service';
-import { Get, Param, Post, Body } from '@nestjs/common';
-import { IMeal } from '@cswf-project/api';
-import { CreateMealDto } from '@cswf-project/backend/dto';
+import { Test, TestingModule } from '@nestjs/testing';
+import { MealController } from './meal.controller';
 
-@Controller('meal')
-export class MealController {
-    constructor(private mealService: MealService) {}
+describe('Meal2Controller', () => {
+  let controller: MealController;
 
-    @Get('')
-    getAll(): IMeal[] {
-        return this.mealService.getAll();
-    }
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [MealController],
+    }).compile();
 
-    @Get(':id')
-    getOne(@Param('id') id: string): IMeal {
-        return this.mealService.getOne(id);
-    }
+    controller = module.get<MealController>(MealController);
+  });
 
-    @Post('')
-    create(@Body() data: CreateMealDto): IMeal {
-        return this.mealService.create(data);
-    }
-}
+  it('should be defined', () => {
+    expect(controller).toBeDefined();
+  });
+});
+
