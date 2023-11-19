@@ -36,6 +36,12 @@
               "maximumError": "4kb"
             }
           ],
+          "fileReplacements": [
+            {
+              "replace": "libs/shared/util-env/src/lib/environment.ts",
+              "with": "libs/shared/util-env/src/lib/environment.production.ts"
+            }
+          ],
           "outputHashing": "all"
         },
         "development": {
@@ -44,7 +50,13 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "libs/shared/util-env/src/lib/environment.ts",
+              "with": "libs/shared/util-env/src/lib/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"

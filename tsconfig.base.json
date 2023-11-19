@@ -20,7 +20,8 @@
       "@cswf-project/backend/features": ["libs/backend/features/src/index.ts"],
       "@cswf-project/common": ["libs/cswf-project/common/src/index.ts"],
       "@cswf-project/features": ["libs/cswf-project/features/src/index.ts"],
-      "@cswf-project/ui": ["libs/cswf-project/ui/src/index.ts"]
+      "@cswf-project/ui": ["libs/cswf-project/ui/src/index.ts"],
+      "@cswf-project/util-env": ["libs/shared/util-env/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
