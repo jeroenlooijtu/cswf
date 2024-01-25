@@ -1,6 +1,8 @@
 import { Route } from '@angular/router';
-import { AboutPageComponent } from 'libs/cswf-project/features/src/lib/about/about-page/about-page.component';
+import { } from '@cswf-project/features';
+import { AppComponent } from './app.component';
+import { AboutPageComponent } from '@cswf-project/features';
 
 export const appRoutes: Route[] = [
-    {path: 'about', component: AboutPageComponent}
+    {path: '', component: AboutPageComponent}
 ];

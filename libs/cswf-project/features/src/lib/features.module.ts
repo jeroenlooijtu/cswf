@@ -10,6 +10,6 @@ import { AboutPageComponent } from './about/about-page/about-page.component';
   imports: [CommonModule, HttpClientModule],
   declarations: [MealListComponent, MealDetailComponent, AboutPageComponent],
   providers: [MealService],
-  exports: [MealListComponent, MealDetailComponent],
+  exports: [MealListComponent, MealDetailComponent, AboutPageComponent]
 })
 export class FeaturesModule {}
